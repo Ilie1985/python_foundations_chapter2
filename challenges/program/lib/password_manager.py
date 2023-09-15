@@ -43,4 +43,42 @@
 # == YOUR CODE ==
 
 class PasswordManager():
-    pass
+    def __init__(self):
+        # Initialize an empty dictionary to store passwords.
+        self.passwords = {}
+
+    def add(self, service, password):
+        # Check if the password is valid.
+        if self.is_valid_password(password):
+            # Add the password to the dictionary.
+            self.passwords[service] = password
+
+    def get_for_service(self, service):
+        # Check if the service exists in the dictionary.
+        # If it does, return the corresponding password. Otherwise, return None.
+        return self.passwords.get(service)
+
+    def list_services(self):
+        # Return a list of all services (keys) in the dictionary.
+        return list(self.passwords.keys())
+
+    def is_valid_password(self, password):
+        # Check if the password is at least 8 characters long and contains
+        # at least one special character from the given set.
+        return len(password) >= 8 and any(char in password for char in "!@$%&")
+
+# Example usage:
+password_manager = PasswordManager()
+password_manager.add('gmail', '12ab5!678')   # Valid password
+password_manager.add('facebook', '$abc1234') # Valid password
+password_manager.add('twitter', '12345678')  # Invalid password, so ignored
+
+print(password_manager.get_for_service('facebook')) # '$abc1234'
+print(password_manager.get_for_service('not_real'))  # None
+print(password_manager.get_for_service('twitter'))   # None
+print(password_manager.list_services())             # ['gmail', 'facebook']
+
+    
+
+
+
