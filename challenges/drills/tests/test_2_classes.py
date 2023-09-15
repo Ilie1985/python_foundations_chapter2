@@ -77,7 +77,7 @@ class TestCohort():
 
     def test_start_date(self):
         subject = Cohort('January 2060', '2060-01-01', '2060-01-08')
-        assert subject.start_date == date(2060, 1, 1)
+        assert subject.start_date == date(2060,1, 1)
 
     def test_end_date(self):
         subject = Cohort('January 2060', '2060-01-01', '2060-01-08')

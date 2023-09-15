@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime 
 
 # == INSTRUCTIONS ==
 #
@@ -52,6 +52,12 @@ class Greeter():
 #   > animal = Animal()
 #   > animal
 #   <Animal object at 0x7f8b8c0b8e80>
+class Animal():
+    def __init__(self):
+        return 
+
+animal=Animal() 
+                
 
 
 
@@ -65,7 +71,10 @@ class Greeter():
 #   > vehicle = Vehicle()
 #   > vehicle
 #   <Vehicle object at 0x7f8b8c0b8e80>
-
+class Vehicle:
+    def __init__(self):
+        return
+vehicle=Vehicle()
 
 
 # Class name: Cat
@@ -80,7 +89,11 @@ class Greeter():
 #   > cat = Cat()
 #   > cat.speak()
 #   'miaow'
-
+class Cat:
+    def __init__(self):
+        return
+    def speak(self):
+        return "miaow"
 
 
 # Class name: Dog
@@ -95,7 +108,11 @@ class Greeter():
 #   > dog = Dog()
 #   > dog.speak()
 #   'woof'
-
+class Dog:
+    def __init__(self):
+        return
+    def speak(self):
+        return "woof"
 
 
 # Class name: StringFormatter
@@ -115,7 +132,19 @@ class Greeter():
 #   'HELLO'
 #   > string_formatter.lower_case('HELLO')
 #   'hello'
-
+class StringFormatter:
+    def __init__(self):
+        return
+    def block_caps(self,string1):
+        self.string1=string1
+        return string1.upper()
+    
+    def lower_case(self,string2):
+        self.string2=string2
+        return string2.lower()
+string_formatter=StringFormatter()
+string_formatter.block_caps("hello")          
+string_formatter.lower_case('HELLO')
 
 
 # Class name: Calculator
@@ -145,8 +174,30 @@ class Greeter():
 #   1
 #   > calculator.divide(6, 2)
 #   3.0
-
-
+class Calculator:
+    def __init__(self):
+        return
+    def add(self,num1,num2):
+        self.num1=num1
+        self.num2=num2
+        return num1 + num2
+    def multiply(self,num1,num2):
+        self.num1=num1
+        self.num2=num2
+        return num1*num2
+    def subtract(self,num1,num2):
+        self.num1=num1
+        self.num2=num2
+        return num1 - num2
+    def divide(self,num1,num2):
+        self.num1=num1
+        self.num2=num2
+        return num1 / num2
+calculator = Calculator()
+calculator.add(1 ,2)
+calculator.multiply(2 , 3)
+calculator.subtract(3 , 2)
+calculator.divide(6 , 2)
 
 # Class name: Apprentice
 # Purpose: represents an apprentice
@@ -171,7 +222,17 @@ class Greeter():
 #   'June 2030'
 #   > apprentice.format_details()
 #   'Rita Smith, June 2030'
-
+class Apprentice():
+    def __init__(self,name,cohort):
+        self.name=name
+        self.cohort=cohort
+        return 
+    def format_details(self):
+        return f"{self.name}, {self.cohort}"
+apprentice = Apprentice('Rita Smith', 'June 2030') 
+apprentice.name 
+apprentice.cohort
+apprentice.format_details() 
 
 
 # Class name: Cohort
@@ -205,5 +266,21 @@ class Greeter():
 #   > cohort.calculate_duration()
 #   92
 
+class Cohort:
+    
+    def __init__(self, name, start_date, end_date):
+        self.name = name
+        self.start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+        self.end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+    
+    def calculate_duration(self):
+        delta = self.end_date - self.start_date
+        return delta.days
+    
+cohort = Cohort('June 2020', '2020-06-01', '2020-09-01')
 
 
+cohort.name
+cohort.start_date
+cohort.end_date
+cohort.calculate_duration()
